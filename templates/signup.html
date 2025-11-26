@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Signup - Nexora</title>
+    <link rel="stylesheet" href="../static/style.css" />
+    <!-- Remix Icon CDN for icon fonts -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body>
+    <div class="page-bg"></div>
+    <header class="site-header">
+        <div class="header-left">
+            <a href="index.html" class="brand" aria-label="Home">
+                <div class="logo" aria-hidden="true">
+                    <img class="logo-img" src="../static/dark_logo.jpg" alt="Site logo" />
+                </div>
+                <div class="site-name">NEXORA</div>
+            </a>
+        </div>
+        <div class="header-right">
+            <nav class="main-nav" aria-label="Main Navigation">
+                <a class="nav-btn" href="acd.html">Academic</a>
+                <a class="nav-btn" href="skill.html">Skills</a>
+                <a class="nav-btn" href="fina.html">Financial</a>
+                <a class="nav-btn" href="task.html">Task</a>
+            </nav>
+
+            <button class="more-btn" id="moreBtn" aria-label="Open menu">⋮</button>
+        </div>
+    </header>
+
+    <main>
+        <div style="display:flex;justify-content:center;align-items:center;min-height:100vh;padding:40px 24px;background:var(--bg);">
+                <div class="form-card wide" role="region" aria-labelledby="formTitle">
+                    <div class="form-logo" aria-hidden="true">
+                    <img class="logo-img form-logo-img" src="../static/dark_logo.jpg" alt="Nexora logo" />
+                    </div>
+                    <h2>Create an account</h2>
+                    <form method="post" action="/signup" autocomplete="on">
+                        <!-- 🎓 Basic Personal Information -->
+                        <fieldset style="border:0;padding:0;margin:0 0 12px">
+                            <legend style="font-weight:700;margin-bottom:8px">🎓 Basic Personal Information</legend>
+
+                            <div class="field">
+                                <label class="label-text">Full Name</label>
+                                <div style="display:flex;gap:8px">
+                                    <input name="first_name" type="text" placeholder="First" required style="flex:1" />
+                                    <input name="last_name" type="text" placeholder="Last" required style="flex:1" />
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <label class="label-text">Date of Birth</label>
+                                <input name="dob" type="date" required />
+                            </div>
+
+                            <div class="field">
+                                <label class="label-text">Gender</label>
+                                <select name="gender">
+                                    <option value="">Select</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="other">Other</option>
+                                    <option value="prefer_not">Prefer not to say</option>
+                                </select>
+                            </div>
+
+                            <div class="field">
+                                <label class="label-text">Contact Number</label>
+                                <input name="contact" type="tel" placeholder="+91 98765 43210" required />
+                            </div>
+
+                            <div class="field">
+                                <label class="label-text">Email Address(For Login)</label>
+                                <input name="email" type="email" placeholder="you@example.com" required />
+                            </div>
+                        </fieldset>
+
+                        <!-- 🏫 Academic Information -->
+                        <fieldset style="border:0;padding:0;margin:0 0 12px">
+                            <legend style="font-weight:700;margin-bottom:8px">🏫 Academic Information</legend>
+
+                            <div class="field">
+                                <label class="label-text">Registration Number</label>
+                                <input name="reg_number" type="text" placeholder="Enrollment / Roll No." />
+                            </div>
+
+                            <div class="field">
+                                <label class="label-text">College / Institution Name</label>
+                                <input name="institution" type="text" placeholder="College or School name" />
+                            </div>  
+
+                            <div class="field">
+                                <label class="label-text">Course / Program</label>
+                                <input name="course" type="text" placeholder="B.Tech, BCA, Diploma, etc." />
+                            </div>
+
+                            <div class="field">
+                                <label class="label-text">Branch / Stream</label>
+                                <input name="branch" type="text" placeholder="CSE, ECE, ME, etc." />
+                            </div>
+
+                            <div class="field">
+                                <label class="label-text">Year / Semester</label>
+                                <input name="year_sem" type="text" placeholder="e.g., 3rd year / 5th sem" />
+                            </div>
+
+                            <div class="field">
+                                <label class="label-text">Admission Year</label>
+                                <input name="admission_year" type="number" min="1900" max="2100" placeholder="2022" />
+                            </div>
+                        </fieldset>
+
+                        <!-- 📍 Address Details -->
+                        <fieldset style="border:0;padding:0;margin:0 0 12px">
+                            <legend style="font-weight:700;margin-bottom:8px">📍 Address Details</legend>
+
+                            <div class="field">
+                                <label class="label-text">Current Address</label>
+                                <textarea name="current_address" rows="3" placeholder="Current address (street, locality)" style="width:100%"></textarea>
+                            </div>
+                            <br>
+
+                            <div style="display:flex;gap:8px">
+                                <div >
+                                    <label class="label-text">State</label>
+                                    <input name="state" type="text" placeholder="State" />
+                                </div>
+                                <div >
+                                    <label class="label-text">Pin Code</label>
+                                    <input name="pincode" type="text" inputmode="numeric" pattern="[0-9]*" placeholder="Pin code" />
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <!-- 🔐 Account Security -->
+                        <fieldset style="border:0;padding:0;margin:0 0 12px">
+                            <legend style="font-weight:700;margin-bottom:8px">🔐 Account Security</legend>
+
+                            <div class="field">
+                                <label class="label-text">Create Password</label>
+                                <div class="password-wrapper">
+                                    <input name="password" type="password" placeholder="Create a strong password" minlength="8" required />
+                                    <button type="button" class="toggle-password" aria-label="Show password">
+                                        <i class="ri-eye-line" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <label class="label-text">Confirm Password</label>
+                                <div class="password-wrapper">
+                                    <input name="confirm_password" type="password" placeholder="Re-enter your password" minlength="8" required />
+                                    <button type="button" class="toggle-password" aria-label="Show confirm password">
+                                        <i class="ri-eye-line" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                        <div class="form-actions">
+                            <button class="btn primary" type="submit">Signup</button>
+                            <a class="btn link" href="login.html">Already have an account?</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <aside class="side-panel" id="sidePanel" aria-hidden="true">
+        <div class="side-panel-inner">
+            <button class="close-panel" id="closePanel" aria-label="Close panel">✕</button>
+            <ul>
+                <li class="theme-toggle-row">
+                    <div class="theme-left">
+                        <i class="ri-sun-fill"></i>
+                        <span>Dark Theme</span>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" id="themeToggle" />
+                        <span class="slider"></span>
+                    </label>
+                </li>
+                <li>
+                    <a href="sett.html">
+                        <i class="ri-settings-4-fill"></i>
+                        Settings
+                    </a>
+                </li>
+                <li>
+                    <a href="about.html">
+                        <i class="ri-information-fill"></i>
+                        About Us
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </aside>
+
+    <div class="overlay" id="overlay" tabindex="-1"></div>
+
+    <script>
+        (function(){
+            const moreBtn = document.getElementById('moreBtn');
+            const sidePanel = document.getElementById('sidePanel');
+            const overlay = document.getElementById('overlay');
+            const closePanel = document.getElementById('closePanel');
+            const themeToggle = document.getElementById('themeToggle');
+            const logoImgs = Array.from(document.querySelectorAll('.logo-img:not(.form-logo-img)'));
+
+            const defaultLogo = '../static/dark_logo.jpg';
+            const darkLogo = '../static/white_logo.jpg';
+            const darkBg = '../static/dark_logo.jpg';
+            const defaultBg = '';
+
+            function openPanel(){
+                sidePanel.classList.add('open');
+                overlay.classList.add('show');
+                sidePanel.setAttribute('aria-hidden', 'false');
+            }
+            function closePanelFn(){
+                sidePanel.classList.remove('open');
+                overlay.classList.remove('show');
+                sidePanel.setAttribute('aria-hidden', 'true');
+            }
+            moreBtn.addEventListener('click', openPanel);
+            closePanel.addEventListener('click', closePanelFn);
+            overlay.addEventListener('click', closePanelFn);
+
+            function setTheme(dark){
+                document.documentElement.classList.toggle('dark', !!dark);
+                localStorage.setItem('darkTheme', !!dark);
+                const pageBg = document.querySelector('.page-bg');
+                if(dark){
+                    logoImgs.forEach(i => { if(i) i.src = darkLogo; });
+                    pageBg.style.backgroundImage = `url('${darkBg}')`;
+                }else{
+                    logoImgs.forEach(i => { if(i) i.src = defaultLogo; });
+                    pageBg.style.backgroundImage = `url('../static/white_logo.jpg')`;
+                }
+            }
+
+            const saved = localStorage.getItem('darkTheme') === 'true';
+            if(themeToggle) themeToggle.checked = saved;
+            setTheme(saved);
+            if(themeToggle) themeToggle.addEventListener('change', function(){ setTheme(this.checked); });
+
+            document.addEventListener('keydown', function(e){ if(e.key === 'Escape'){ closePanelFn(); } });
+            // Password visibility toggles for inputs that include a .toggle-password button
+            (function(){
+                function toggleHandler(e){
+                    const btn = e.currentTarget;
+                    const wrapper = btn.closest('.password-wrapper');
+                    if(!wrapper) return;
+                    const input = wrapper.querySelector('input[type="password"], input[type="text"]');
+                    if(!input) return;
+                    const icon = btn.querySelector('i');
+
+                    if(input.type === 'password'){
+                        input.type = 'text';
+                        btn.setAttribute('aria-label', 'Hide password');
+                        if(icon) { icon.classList.remove('ri-eye-line'); icon.classList.add('ri-eye-off-line'); }
+                    } else {
+                        input.type = 'password';
+                        btn.setAttribute('aria-label', 'Show password');
+                        if(icon) { icon.classList.remove('ri-eye-off-line'); icon.classList.add('ri-eye-line'); }
+                    }
+                }
+                const toggleButtons = Array.from(document.querySelectorAll('.toggle-password'));
+                toggleButtons.forEach(b => b.addEventListener('click', toggleHandler));
+            })();
+        })();
+    </script>
+    
+</body>
+</html>

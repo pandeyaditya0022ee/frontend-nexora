@@ -1,5 +1,5 @@
 :root{
-	--bg: #f6f7fb;
+	--bg: #ffffff;
 	--surface: #ffffff;
 	--muted: #6b7280;
 	--text: #131416;
@@ -10,9 +10,9 @@
 }
 .dark{
 	--bg: #0f1b2b;
-	--surface: rgb(35, 45, 99);
+	--surface: rgb(35, 46, 107);
 	--muted: #9aa4b2;
-	--text: #eef2ff;
+	--text: #f5f7fc;
 	--accent: #4f7bff;
 	--shadow: 0 8px 24px rgba(2,6,23,0.6);
 }
@@ -36,7 +36,7 @@ body {
 	width: 100vw;
 	height: 100vh;
 	z-index: -1;
-	background: url('WhatsApp Image 2025-11-19 at 23.00.34_110c6f77.jpg') center center/cover no-repeat;
+	background: url('dark_logo.jpg') center center/cover no-repeat;
 	pointer-events: none;
 }
 
@@ -55,7 +55,7 @@ body {
 	box-shadow:none;
 	border-radius:0;
 	margin:0;
-	border-bottom:5px solid rgba(28, 28, 29, 0.04);
+	border-bottom:5px solid rgba(28, 28, 29, 0.048);
 	z-index:100;
 }
 .header-left{display:flex;align-items:center;gap:12px}
@@ -70,15 +70,15 @@ body {
 
 .main-nav{display:flex;align-items:center;gap:8px;flex:1;justify-content:center}
 .nav-btn{
-	background:var(--surface);
-	border:0;
+	background:var(--surface );
+	border:0.1px solid rgba(0,0,0,0.1);
 	padding:10px 14px;
-	border-radius:8px;
+	border-radius:25px;
 	cursor:pointer;
 	color:var(--text);
 	box-shadow: 0 4px 12px rgba(16,24,40,0.04);
 	transition:transform .12s ease, box-shadow .12s ease;
-	margin: 75px;
+	margin: 0;
 }
 .nav-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(16,24,40,0.06)}
 
@@ -147,19 +147,52 @@ body {
 .form-card{
 	width:100%;
 	max-width:480px;
-	background:rgba(238, 235, 235, 0.85); /* more transparent for light mode */
+	background: var(--surface);
 	padding:28px;
 	border-radius:14px;
 	box-shadow:0 10px 30px rgba(2,6,23,0.08);
 }
+.form-card.wide{max-width:760px}
 .dark .form-card{background:rgba(8,10,12,0.7);color:var(--text)}
 .form-card h2{margin:0 0 12px;font-size:1.25rem}
+.form-logo{display:flex;justify-content:center;margin-bottom:8px}
+.form-logo-img{width:64px;height:64px;border-radius:50%;object-fit:cover;display:block}
 .form-card form{display:flex;flex-direction:column;gap:12px}
 .form-card .field{display:flex;flex-direction:column;gap:6px}
 .label-text{font-size:.85rem;color:var(--muted)}
 .form-card input{border:1px solid rgba(16,24,40,0.06);padding:10px 12px;border-radius:8px;background:transparent;color:var(--text);font-size:0.98rem}
 .form-card input:focus{outline:none;box-shadow:0 10px 20px rgba(0, 0, 0, 0.12);border-color:rgba(91,141,239,0.24)}
+
+/* Password input wrapper + toggle icon */
+.password-wrapper{position:relative;display:block}
+.password-wrapper input{padding-right:44px}
+.toggle-password{position:absolute;right:8px;top:50%;transform:translateY(-50%);border:0;background:transparent;color:var(--muted);cursor:pointer;padding:6px;border-radius:6px;font-size:18px;display:inline-flex;align-items:center;justify-content:center}
+.toggle-password:focus{outline:2px solid rgba(91,141,239,0.18);outline-offset:2px}
+.toggle-password i{display:inline-block;font-size:18px;line-height:1}
 .form-actions{display:flex;gap:10px;align-items:center;justify-content:space-between;margin-top:6px}
+.divider{display:flex;align-items:center;gap:8px;margin:18px 0;color:var(--muted)}
+.divider:before,.divider:after{content:"";flex:1;height:1px;background:rgba(0,0,0,0.06)}
+.divider span{padding:0 8px;background:transparent}
+
+.social-row{display:flex;gap:12px;justify-content:center;align-items:center;margin:6px 0}
+.social-row .btn.social{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:8px;border:1px solid rgba(16,24,40,0.06);background:transparent;color:var(--text)}
+.social-row .btn.social img{width:18px;height:18px}
+
+/* Signup layout: two-column for wide screens */
+.signup-layout{display:flex;align-items:stretch;min-height:100vh;padding:40px 24px;background:var(--bg);gap:28px}
+.signup-left{display:flex;align-items:center;justify-content:center;flex:0 0 480px}
+.signup-right{flex:1;display:block;overflow:hidden}
+.signup-right img{width:100%;height:100%;object-fit:cover;border-top-left-radius:45px;border-bottom-left-radius:45px;display:block}
+
+/* Narrow screens: stack */
+@media (max-width:940px){
+	.signup-layout{flex-direction:column;padding:24px}
+	.signup-left{flex:unset;width:100%}
+	.signup-right{width:100%;height:auto}
+	.signup-right img{border-radius:12px;margin-top:18px}
+}
+
+.signup-left .btn.primary{background:#3a5b22}
 .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:10px;text-decoration:none;border:0;cursor:pointer}
 .btn.primary{background:var(--accent);color:white;box-shadow:0 8px 20px rgba(3, 25, 68, 0.16)}
 .btn.link{background:transparent;color:var(--muted);font-size:.95rem}
