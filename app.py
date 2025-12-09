@@ -1,22 +1,23 @@
-from flask import Flask, render_template
-from api import api
-
+from flask import Flask, render_template, redirect, url_for,request
 app = Flask(__name__)
-app.config.from_object('config.Config')
 
-# Register the API Blueprint
-app.register_blueprint(api, url_prefix='/api')
-
-@app.route('/')
-def index():
-    return render_template('index.html')
-
-@app.route('/<path:page>')
-def static_pages(page):
-    try:
-        return render_template(page)
-    except:
-        return "Page not found", 404
-
-if __name__ == '__main__':
-    app.run(debug=True)
+@app.route('/login/personal_info', methods=['GET', 'POST'])
+def login1():
+    if request.method == 'POST':
+        # Handle login logic here
+        f_name = request.form.get('first_name')
+        s_name = request.form.get('surname')
+        address = request.form.get('address')
+        dob = request.form.get('dob')
+        l=[f_name, s_name, address, dob]
+        return redirect(url_for('login2', data=l))
+    return render_template('login.html')
+@app.route('/login/academic_info', methods=['GET', 'POST'])
+def login2(data):
+    if request.method == 'POST':
+        # Handle academic info logic here
+        course = request.form.get('course')
+        year = request.form.get('year')
+        roll_no = request.form.get('roll_no')
+        l = data + [course, year]
+        return redirect(url_for('login3', data=l))
