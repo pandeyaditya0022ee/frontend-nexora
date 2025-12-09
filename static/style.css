@@ -160,7 +160,7 @@ body {
 .form-card form{display:flex;flex-direction:column;gap:12px}
 .form-card .field{display:flex;flex-direction:column;gap:6px}
 .label-text{font-size:.85rem;color:var(--muted)}
-.form-card input{border:1px solid rgba(16,24,40,0.06);padding:10px 12px;border-radius:8px;background:transparent;color:var(--text);font-size:0.98rem}
+.form-card input{border:1px solid rgba(43, 68, 119, 0.219);padding:10px 12px;border-radius:25px;background:transparent;color:var(--text);font-size:0.98rem}
 .form-card input:focus{outline:none;box-shadow:0 10px 20px rgba(0, 0, 0, 0.12);border-color:rgba(91,141,239,0.24)}
 
 /* Password input wrapper + toggle icon */
@@ -193,7 +193,7 @@ body {
 }
 
 .signup-left .btn.primary{background:#3a5b22}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:10px;text-decoration:none;border:0;cursor:pointer}
+.btn{display:inline-flex;align-items:center;gap:50px;padding:6px 8px;border-radius:50px;text-decoration:none;border:0;cursor:pointer}
 .btn.primary{background:var(--accent);color:white;box-shadow:0 8px 20px rgba(3, 25, 68, 0.16)}
 .btn.link{background:transparent;color:var(--muted);font-size:.95rem}
 
